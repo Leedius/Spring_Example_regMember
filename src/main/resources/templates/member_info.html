@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+	<div>
+		<div>아이디</div>
+		<div>[[${memberVO.memId}]]</div>
+		<div>이름</div>
+		<div th:text="${memberVO.memName}"></div>
+	</div>
+	<div>
+		<div>연락처</div>
+		<div>
+    		<th:block th:each="e : ${memberVO.memTell}">
+       			<span th:text="${e}"></span>
+   			</th:block>
+		</div>
+		<div>이메일</div>
+		<div th:text="${memberVO.memEmail}"></div>
+	</div>
+	<div>
+		<div>생일</div>
+		<div th:text="${memberVO.memDate}"></div>
+		<div>추천인명</div>
+		<div th:text="${memberDetailVO.recomendName}"></div>
+	</div>
+	<div>
+		<div>관심레슨</div>
+		<div>
+			<th:block th:each="e : ${memberDetailVO.lesson}">
+				[[${e}]]
+			</th:block>
+		</div>
+	</div>
+	<div>
+		<div>자기소개</div>
+		<div th:text="${memberDetailVO.intro}"></div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+	<form action="/member/regMember" method="post">
+		<div>
+			<div>아이디</div>
+			<div><input type="text" name="memId"></div>
+		</div>
+		<div>
+			<div>비밀번호</div>
+			<div><input type="password" name="memPw"></div>
+		</div>
+		<div>
+			<div>이름</div>
+			<div><input type="text" name="memName"></div>
+		</div>
+		<div>
+			<div>연락처</div>
+			<div>
+				<select name="memTell">
+					<option value="010">010</option>
+					<option value="011">011</option>
+					<option value="012">012</option>
+				</select>
+				<input type="text" name="memTell">
+				<input type="text" name="memTell">
+			</div>
+		</div>
+		<div>
+			<div>이메일</div>
+			<div><input type="email" name="memEmail"></div>
+		</div>
+		<div>
+			<div>생일</div>
+			<div><input type="date" name="memDate"></div>
+		</div>
+		<div>
+			<input type="submit" value="회원가입">
+		</div>
+	</form>
+</div>
+</body>
+</html>

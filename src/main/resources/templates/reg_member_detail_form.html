@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div>
+	<!-- 기존과 같이 데이터를 hidden타입으로 넘기되 value는 thymeleaf를 사용하여 아래와 같이 전달 -->
+	<form action="/member/regMemberDetail" method="post">
+	<input type="hidden" name="memId" th:value="${memberVO.memId}">
+	<input type="hidden" name="memPw" th:value="${memberVO.memPw}">
+	<!-- <input type="hidden" name="memTell" th:value="${memberVO.memTell}"> 배열이라 이문법은 안됨 -->
+	<input type="hidden" name="memEmail" th:value="${memberVO.memEmail}">
+	<input type="hidden" name="memName" th:value="${memberVO.memName}">
+	<input type="hidden" name="memDate" th:value="${memberVO.memDate}">
+	<th:block th:each="e : ${memberVO.memTell}">
+		 <input type="hidden" name="memTell" th:value="${e}">
+	</th:block>
+	<span th:text="${memberVO.memName}"></span>
+	 회원님 가입을 환영합니다. [[${memberVO.memName}]]
+	<div>
+		<div>관심레슨</div>
+		<div>
+			<input type="checkbox" value="수영" name="lesson"> 수영
+			<input type="checkbox" value="헬스" name="lesson"> 헬스
+			<input type="checkbox" value="요가" name="lesson"> 요가
+			<input type="checkbox" value="필라테스" name="lesson"> 필라테스
+		</div>
+	</div>
+	<div>
+		<div>레슨에 참여한 적 있나요</div>
+		<div>
+			<input type="radio" value="예" name="takeLesson"> 예 
+			<input type="radio" value="아니오" name="takeLesson"> 아니오 
+		</div>
+	</div>
+	<div>
+		<div>추천인명</div>
+		<div><input type="text" name="recomendName"></div>
+	</div>
+	<div>
+		<div>자기소개</div>
+		<div>
+			<textarea rows="5" cols="60" style="resize: none;" name="intro"></textarea>		
+		</div>
+	</div>
+	<div>
+		<input type="submit" value="입력완료">
+	</div>
+	</form>
+</div>
+</body>
+</html>
